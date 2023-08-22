@@ -1,0 +1,20 @@
+-problemas em controle de estoque; 
+-menu no lateral esquerdo em cima, fazer ícones para as funções (ser muito intuitivo para pessoas leigas);
+-os pedidos são feitos pela empresa (por uma das contas);
+-fazer relatórios de compra, sistema de realização de pedidos (com filtros, mostrando todos as possibilidades ao ), quantidade de produtos, metragem quadrada de vidro que sai, importar dados de planilha; 
+-relatórios: qtd de metragem que saiu de cada item, valor de estoque (ligado a uma tabela que os preços podem ser atualizados);
+-mostrar todos fornecedores conforme o tipo de vidro disponibilizado (todos fornecedores que fornecem vidro x etc.); 
+-cadastro de materiais, fornecedores, clientes, logins e itens; 
+-aviso de estoque mínimo, gerando uma lista do que falta para pedir ao fornecedor (colocar como atributo em cada material o valor mínimo);
+-se tiver tempo colocar o aviso do estoque por e-mail;
+-
+-dentro do item deve ser armazenados os materiais que serão utilizados, mudando somente sua quantidade, a cada certa quantidade de material é acrescentado outro material;
+-pedido não depende do estoque, por exemplo é possível pedir sem ter estoque, após o cliente aprovar o orçamento gerado é dado um aviso se o estoque atingiu o valor mínimo ou se vai precisar mais do que já tem armazenado;
+-existe uma perda de menos de 10% na metragem;
+-existir opção de quebra de estoque;
+-login para 5 pessoas e possibilidade de criar mais logins (uma para poder mudar tudo [admin], outro para consultas de estoque geral [sem muitos detalhes], outro para ver tudo sobre o estoque junto com o seu orçamento);
+-fornecedor (atributos): id, nome, tudo o que fornece, estado, CNPJ;
+-vidros (atributos): id, tipo de vidro, cor, dimensões (ex: 1 metro x 3 metros) e expessura (4 a 20mm);
+-alumínio (atributos): 
+-ferragens (atributos):
+-51995387674 (número para consultar);
