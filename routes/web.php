@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\MateriaisController;
@@ -39,6 +40,8 @@ Route::get('/listF', [FornecedoresController::class, 'index'])
     ->name('listF');
 
 Route::resource("/clientes", ClientesController::class)->middleware(['auth', 'verified']);
+
+Route::resource("/admin", AdminController::class)->middleware(['auth', 'verified']);
 
 Route::get('/listC', [ClientesController::class, 'index'])
     ->middleware(['auth', 'verified'])
