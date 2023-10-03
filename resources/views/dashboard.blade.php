@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -11,6 +10,14 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="content">
+                        <h1 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                            Seja Bem-vindo a Tela de Início do Sistema de Gerenciamento da Vidraçaria
+                        </h1>
+                        @if(1==1)
+                        <h2 class="font-semibold text-sm text-red-600 leading-tight">
+                            Se não for ADMINISTRADOR, aguarde até o acesso ser concedido.
+                        </h2>
+                        @endif
                         @yield('content')
                     </div>
                 </div>
