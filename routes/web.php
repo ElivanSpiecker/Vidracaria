@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\FornecedoresController;
+use App\Http\Controllers\ItensController;
 use App\Http\Controllers\MateriaisController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Fornecedores;
@@ -52,5 +53,11 @@ Route::resource("/materiais", MateriaisController::class)->middleware(['auth', '
 Route::get('/listM', [MateriaisController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('listM');
+
+    Route::resource("/itens", ItensController::class)->middleware(['auth', 'verified']);
+
+Route::get('/listI', [ItensController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('listI');
 
 require __DIR__.'/auth.php';

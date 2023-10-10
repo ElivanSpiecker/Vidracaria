@@ -33,6 +33,11 @@
                         {{ __('Materiais') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('listI')" :active="request()->routeIs('dashboard')">
+                        {{ __('Itens') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

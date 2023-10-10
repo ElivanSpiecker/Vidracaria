@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string("descricao", 100);
             $table->unsignedBigInteger('cliente_id');
             $table->foreign('cliente_id')->references('id')->on('clientes');
+            $table->float("altura");
+            $table->float("largura");
             $table->timestamps();
         });
     }
