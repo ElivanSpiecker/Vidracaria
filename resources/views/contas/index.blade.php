@@ -13,7 +13,7 @@
     @csrf
     @method('patch')
 
-    @if (count($contas) == 1)
+    @if (count($contas) == 0)
     <h3 class="text-red-500">Nenhuma Conta Encontrada!</h3>
     @else
     <table class="min-w-full divide-y divide-gray-200">

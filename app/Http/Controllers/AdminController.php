@@ -34,37 +34,27 @@ class AdminController extends Controller
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(Request $request, string $id)
     {
-        $request->user()->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
-
-        $request->user()->save();
-
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $conta = User::find($id);
+        $conta->name = $request->input('name');
+        $conta->type = $request->input('type');
+        $conta->email = $request->input('email');
+        $conta->save();
+        $contas = User::all();
+        return view('contas.index')->with('contas', $contas)
+            ->with('msg', 'Conta atualizada!');
     }
 
     /**
      * Delete the user's account.
      */
-    public function destroy(Request $request): RedirectResponse
+    public function destroy(string $id)
     {
-        $request->validateWithBag('userDeletion', [
-            'password' => ['required', 'current_password'],
-        ]);
-
-        $user = $request->user();
-
-        Auth::logout();
-
-        $user->delete();
-
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-
-        return Redirect::to('/');
+        $conta = User::find($id);
+        $conta->delete();
+        $conta = User::all();
+        return view('contas.index')->with('conta', $conta)
+            ->with('msg', "Conta foi excluída!");
     }
 }
