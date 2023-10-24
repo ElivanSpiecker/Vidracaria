@@ -11,16 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('itens', function (Blueprint $table) {
+        Schema::create('produtos', function (Blueprint $table) {
             $table->id();
             $table->string("nome", 100);
             $table->string("descricao", 100);
-            $table->unsignedBigInteger('cliente_id');
-            $table->foreign('cliente_id')->references('id')->on('clientes');
-            $table->unsignedBigInteger('produto_id');
-            $table->foreign('produto_id')->references('id')->on('produtos');
-            $table->float("altura");
-            $table->float("largura");
             $table->timestamps();
         });
     }
@@ -30,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('itens');
+        Schema::dropIfExists('produtos');
     }
 };

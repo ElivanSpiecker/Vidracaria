@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Itens;
+use App\Models\Produtos;
 use Illuminate\Http\Request;
 
 class ItensController extends Controller
@@ -21,7 +22,8 @@ class ItensController extends Controller
      */
     public function create()
     {
-        return view('itens.create');
+        $produtos = Produtos::all();
+        return view('itens.create')->with('produtos', $produtos);
     }
 
     /**
@@ -33,6 +35,7 @@ class ItensController extends Controller
         $itens->nome = $request->input('nome');
         $itens->descricao = $request->input('descricao');
         $itens->cliente_id = $request->input('cliente_id');
+        $itens->produto_id = $request->input('produto_id');
         $itens->altura = $request->input('altura');
         $itens->largura = $request->input('largura');
         $itens->save();

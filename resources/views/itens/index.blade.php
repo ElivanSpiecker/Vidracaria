@@ -13,6 +13,7 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descrição</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cliente_id</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Produto_id</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Altura</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Largura</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
@@ -25,6 +26,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->nome }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->descricao }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->cliente_id }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $i->produto_id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->altura }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->largura }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
