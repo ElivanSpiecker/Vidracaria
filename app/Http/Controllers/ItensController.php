@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Itens;
 use App\Models\Produtos;
+use App\Models\Materiais;
 use Illuminate\Http\Request;
 
 class ItensController extends Controller
@@ -23,8 +24,11 @@ class ItensController extends Controller
     public function create()
     {
         $produtos = Produtos::all();
-        return view('itens.create')->with('produtos', $produtos);
+        $materiais = Materiais::all();
+    
+        return view('itens.create', ['produtos' => $produtos, 'materiais' => $materiais]);
     }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -38,10 +42,11 @@ class ItensController extends Controller
         $itens->produto_id = $request->input('produto_id');
         $itens->altura = $request->input('altura');
         $itens->largura = $request->input('largura');
+        $itens->material_id = $request->input('material_id');
         $itens->save();
         $itens = Itens::all();
         return view('itens.index')->with('itens', $itens)
-            ->with('msg', 'Item cadastrado!');
+            ->with('msg', 'Pedido cadastrado!');
     }
 
     /**

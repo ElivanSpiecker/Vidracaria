@@ -12,10 +12,11 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descrição</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cliente_id</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Produto_id</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código do cliente</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código de produto</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Altura</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Largura</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Código do material</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
             </tr>
         </thead>    
@@ -29,6 +30,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->produto_id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->altura }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->largura }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $i->material_id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <a href="{{ route('itens.edit', $i->id) }}"
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>

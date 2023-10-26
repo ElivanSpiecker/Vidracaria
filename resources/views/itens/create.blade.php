@@ -6,15 +6,15 @@
 
         <form class="form" method="POST" action="{{ route('itens.store') }}">
             @csrf
-            <table class="min-w-full divide-y divide-gray-200">  
-        <tbody class="divide-y divide-gray-200">
-            @foreach ($produtos as $p)
-                <label for="produto" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Produto:</label>
+            <table class="min-w-full divide-y divide-gray-200">
+                <tbody class="divide-y divide-gray-200">
+                    @foreach ($produtos as $p)
+                    <label for="produto" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Produtos:</label>
                     <input type="radio" name="produto_id" id="produto{{ $p->id }}" value="{{ $p->id }}" class="mr-2">
-                    <label for="produto{{ $p->id }}" class="text-sm">REF: {{ $p->id }} Nome: {{ $p->nome }} Descrição: {{ $p->descricao }}</label>
-            @endforeach
-        </tbody>
-    </table>
+                    <label for="produto{{ $p->id }}" class="text-sm">&nbsp;&nbsp;REF: {{ $p->id }} &nbsp;&nbsp; Nome: {{ $p->nome }} &nbsp;&nbsp; Descrição: {{ $p->descricao }}</label>
+                    @endforeach
+                </tbody>
+            </table>
 
             <div class="mb-4">
                 <label for="nome" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nome:</label>
@@ -36,6 +36,42 @@
                 <label for="largura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Largura:</label>
                 <input type="float" name="largura" id="largura" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
+
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantidade</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cor</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nível mínimo</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Características</th>
+                    </tr>
+                </thead>
+
+                <tbody style="text-align: justify;" class="divide-y divide-gray-200">
+                    @foreach ($materiais as $m)
+                    <label for="material" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Materiais:</label>
+                    <input type="radio" name="material_id" id="material{{ $m->id }}" value="{{ $m->id }}" class="mr-2">
+                    <label for="material{{ $m->id }}" class="text-sm">&nbsp;&nbsp; 
+                        {{ $m->id }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ $m->nome }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ $m->quantidade }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        {{ $m->cor }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                        {{ $m->nivelminimo }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        {{ $m->caracteristicas }}</label>
+                    @endforeach
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="6" class="px-6 py-4 text-sm font-medium text-gray-500">Total de Materiais Cadastrados:
+                            {{ $materiais->count() }}
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
             <div class="space-x-2">
                 <input type="submit" value="Salvar" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md cursor-pointer">
                 <input type="reset" value="Limpar" class="bg-gray-400 hover:bg-gray-500 text-white font-semibold py-2 px-4 rounded-md cursor-pointer">

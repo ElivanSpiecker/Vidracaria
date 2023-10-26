@@ -21,6 +21,8 @@ return new class extends Migration
             $table->foreign('produto_id')->references('id')->on('produtos');
             $table->float("altura");
             $table->float("largura");
+            $table->unsignedBigInteger('material_id');
+            $table->foreign('material_id')->references('id')->on('materiais');
             $table->timestamps();
         });
     }
