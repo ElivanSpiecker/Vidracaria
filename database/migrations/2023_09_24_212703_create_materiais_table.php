@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('materiais', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('material_id');
+            $table->foreign('materials_id')->references('id')->on('materials');
             $table->string("nome", 100);
-            $table->double("quantidade");
             $table->string("cor", 45);
-            $table->double("nivelminimo");
+            $table->double("altura");
+            $table->double("largura");
+            $table->double("espessura");
             $table->string("caracteristicas", 100);
             $table->timestamps();
         });

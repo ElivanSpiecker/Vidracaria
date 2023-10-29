@@ -28,6 +28,13 @@
                         {{ __('Clientes') }}
                     </x-nav-link>
                 </div>
+
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('listMa')" :active="request()->routeIs('dashboard')">
+                        {{ __('Tipo Material ') }}
+                    </x-nav-link>
+                </div>
+                
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('listM')" :active="request()->routeIs('dashboard')">
                         {{ __('Materiais') }}

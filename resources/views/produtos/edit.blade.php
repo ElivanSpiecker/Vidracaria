@@ -13,6 +13,18 @@
             <label for="descricao" class="block text-sm font-semibold mb-2">Descrição:</label>
             <input type="text" name="descricao" id="descricao" required value="{{ $produto->descricao }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
+        <div class="mb-4">
+            <label for="material1" class="block text-sm font-semibold mb-2">Material 1:</label>
+            <input type="text" name="material1" id="material1" required value="{{ $produto->material1 }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
+        </div>
+        <div class="mb-4">
+            <label for="material2" class="block text-sm font-semibold mb-2">Material 2:</label>
+            <input type="text" name="material2" id="material2" required value="{{ $produto->material2 }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
+        </div>
+        <div class="mb-4">
+            <label for="material3" class="block text-sm font-semibold mb-2">Material 3:</label>
+            <input type="text" name="material3" id="material3" required value="{{ $produto->material3 }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
+        </div>
         <div class="flex space-x-4">
             <button form="update-form" type="submit" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md cursor-pointer" style="background-color:green">Salvar</button>
             

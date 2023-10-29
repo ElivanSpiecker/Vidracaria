@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\ItensController;
 use App\Http\Controllers\MateriaisController;
+use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProdutosController;
 use App\Models\Fornecedores;
@@ -48,6 +49,12 @@ Route::resource("/admin", AdminController::class)->middleware(['auth', 'verified
 Route::get('/listC', [ClientesController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('listC');
+   
+    Route::resource("/material", MaterialController::class)->middleware(['auth', 'verified']);    
+
+    Route::get('/listMa', [MaterialController::class, 'index'])
+    ->middleware(['auth', 'verified'])
+    ->name('listMa');    
 
 Route::resource("/materiais", MateriaisController::class)->middleware(['auth', 'verified']);
 
