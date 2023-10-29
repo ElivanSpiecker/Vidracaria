@@ -17,13 +17,14 @@ class AdminController extends Controller
     public function index(): View
     {
         $contas = User::all();
-        return view('contas.index')->with('contas',$contas);
+        return view('contas.index')->with('contas', $contas);
     }
     public function edit(string $id)
     {
         $conta = User::find($id);
+        $id2 = Auth::id();
         if ($conta) {
-            return view('contas.edit')->with('conta', $conta);
+            return view('contas.edit')->with('conta', $conta)->with('id', $id2);
         } else {
             $contas = User::all();
             return view('contas.index')->with('contas', $contas)
@@ -53,8 +54,8 @@ class AdminController extends Controller
     {
         $conta = User::find($id);
         $conta->delete();
-        $conta = User::all();
-        return view('contas.index')->with('conta', $conta)
+        $contas = User::all();
+        return view('contas.index')->with('contas', $contas)
             ->with('msg', "Conta foi excluída!");
     }
 }

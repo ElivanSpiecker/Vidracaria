@@ -18,19 +18,22 @@
                     @include('profile.partials.update-password-form')
                 </div>
             </div>
-
+            
+            @if ($id==1)
+            @else
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
                     @include('profile.partials.delete-user-form')
                 </div>
             </div>
-            
+            @endif
+            @if ($id==1)
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
-                    <a href="{{ route('admin.index') }}">Editar contas</a>
+                    <a href="{{ route('admin.index') }}" style="color: yellow">Editar contas</a>
                 </div>
             </div>
-            
+            @endif
         </div>
     </div>
 </x-app-layout>
