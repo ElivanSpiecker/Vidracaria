@@ -12,7 +12,6 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nível mínimo</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantidade</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
             </tr>
         </thead>
@@ -22,9 +21,8 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $ma->id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $ma->tipo }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $ma->nivelminimo }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $ma->quantidade }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="{{ route('materials.edit', $ma->id) }}"
+                    <a href="{{ route('material.edit', $ma->id) }}"
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
                 </td>
             </tr>

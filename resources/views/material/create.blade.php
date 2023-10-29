@@ -6,8 +6,8 @@
         <form class="form" method="POST" action="{{ route('material.store') }}">
             @csrf
             <div class="mb-4">
-                <label for="nome" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tipo:</label>
-                <input type="text" name="nome" id="nome" required
+                <label for="tipo" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Tipo:</label>
+                <input type="text" name="tipo" id="tipo" required
                     class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="mb-4">

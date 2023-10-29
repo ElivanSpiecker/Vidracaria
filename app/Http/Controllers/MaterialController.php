@@ -30,11 +30,11 @@ class MaterialController extends Controller
     public function store(Request $request)
     {
         $materiais = new Material();
-        $materiais->nome = $request->input('tipo');
+        $materiais->tipo = $request->input('tipo');
         $materiais->nivelminimo = $request->input('nivelminimo');
         $materiais->save();
         $materiais = Material::all();
-        return view('material.index')->with('materiais', $materiais)
+        return view('material.index')->with('materials', $materiais)
             ->with('msg', 'Tipo Material cadastrado!');
     }
 
@@ -53,10 +53,10 @@ class MaterialController extends Controller
     {
         $material = Material::find($id);
         if ($material) {
-            return view('material.edit')->with('material', $material);
+            return view('material.edit')->with('materials', $material);
         } else {
             $materiais = Material::all();
-            return view('material.index')->with('materiais', $materiais)
+            return view('material.index')->with('materials', $materiais)
                 ->with('msg', 'Tipo de Material não encontrado!');
         }
     }
@@ -67,11 +67,11 @@ class MaterialController extends Controller
     public function update(Request $request, string $id)
     {
         $materiais = Material::find($id);
-        $materiais->nome = $request->input('nome');
+        $materiais->tipo = $request->input('tipo');
         $materiais->nivelminimo = $request->input('nivelminimo');
         $materiais->save();
         $materiais = Material::all();
-        return view('material.index')->with('materiais', $materiais)
+        return view('material.index')->with('materials', $materiais)
             ->with('msg', 'Tipo de Material atualizado!');
     }
 
@@ -83,7 +83,7 @@ class MaterialController extends Controller
         $materiais = Material::find($id);
         $materiais->delete();
         $materiais = Material::all();
-        return view('material.index')->with('materiais', $materiais)
+        return view('material.index')->with('materials', $materiais)
             ->with('msg', "Tipo de Material foi excluído!");
     }
 }
