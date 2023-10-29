@@ -10,10 +10,12 @@
         <thead>
             <tr>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo Material</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantidade</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cor</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nível mínimo</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Altura</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Largura</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Espessura</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Características</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
             </tr>
@@ -22,13 +24,15 @@
             @foreach ($materiais as $m)
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $m->id }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $m->material_id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $m->nome }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $m->quantidade }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $m->cor }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $m->nivelminimo }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $m->altura }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $m->largura }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $m->espessura }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $m->caracteristicas }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="{{ route('materiais.edit', $m->id) }}"
+                    <a href="{{ route('materiais.edit', $m->id) }}"  
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
                 </td>
             </tr>

@@ -30,7 +30,16 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->produto_id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->altura }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $i->largura }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $i->material_id }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    @php
+                        $materialIdArray = unserialize($i->material_id);
+                    @endphp
+                    @foreach ($materialIdArray as $materialId)
+                        {{ $materialId }}
+                        <!-- Se você desejar, pode buscar informações detalhadas de cada material usando $materialId -->
+                    ;
+                    @endforeach
+                </td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <a href="{{ route('itens.edit', $i->id) }}"
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
@@ -49,7 +58,7 @@
 
     <div class="mt-4">
         <a href="{{ route('itens.create') }}"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Item</a>
+            class="bg-blue-500 hover-bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Item</a>
     </div>
 
     @if (isset($msg))

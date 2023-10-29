@@ -42,7 +42,7 @@ class ItensController extends Controller
         $itens->produto_id = $request->input('produto_id');
         $itens->altura = $request->input('altura');
         $itens->largura = $request->input('largura');
-        $itens->material_id = $request->input('material_id');
+        $itens->material_id = serialize($request->input('material_ids'));
         $itens->save();
         $itens = Itens::all();
         return view('itens.index')->with('itens', $itens)

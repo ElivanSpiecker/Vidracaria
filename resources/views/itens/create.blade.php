@@ -42,35 +42,40 @@
                     <tr>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantidade</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cor</th>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nível mínimo</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Altura</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Largura</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Espessura</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Características</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Selecionar</th>
                     </tr>
                 </thead>
 
-                <tbody style="text-align: justify;" class="divide-y divide-gray-200">
+                <tbody class="text-center divide-y divide-gray-200">
                     @foreach ($materiais as $m)
-                    <label for="material" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Materiais:</label>
-                    <input type="radio" name="material_id" id="material{{ $m->id }}" value="{{ $m->id }}" class="mr-2">
-                    <label for="material{{ $m->id }}" class="text-sm">&nbsp;&nbsp; 
-                        {{ $m->id }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        {{ $m->nome }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        {{ $m->quantidade }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                        {{ $m->cor }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                        {{ $m->nivelminimo }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        {{ $m->caracteristicas }}</label>
+                    <tr>
+                        <td class="px-6 py-4">{{ $m->id }}</td>
+                        <td class="px-6 py-4">{{ $m->nome }}</td>
+                        <td class="px-6 py-4">{{ $m->cor }}</td>
+                        <td class="px-6 py-4">{{ $m->altura }}</td>
+                        <td class="px-6 py-4">{{ $m->largura }}</td>
+                        <td class="px-6 py-4">{{ $m->espessura }}</td>
+                        <td class="px-6 py-4">{{ $m->caracteristicas }}</td>
+                        <td class="px-6 py-4">
+                            <input type="checkbox" name="material_ids[]" value="{{ $m->id }}">
+                        </td>
+                    </tr>
                     @endforeach
                 </tbody>
 
                 <tfoot>
                     <tr>
-                        <td colspan="6" class="px-6 py-4 text-sm font-medium text-gray-500">Total de Materiais Cadastrados:
-                            {{ $materiais->count() }}
-                        </td>
+                        <td colspan="8" class="px-6 py-4 text-sm font-medium text-gray-500 text-center">Total de Materiais Cadastrados: {{ $materiais->count() }}</td>
                     </tr>
                 </tfoot>
             </table>
+
+
 
             <div class="space-x-2">
                 <input type="submit" value="Salvar" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md cursor-pointer">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materiais;
+use App\Models\Material;
 use Illuminate\Http\Request;
 
 class MateriaisController extends Controller
@@ -21,7 +22,8 @@ class MateriaisController extends Controller
      */
     public function create()
     {
-        return view('materiais.create');
+        $material = Material::all();
+        return view('materiais.create')-> with('material', $material);
     }
 
     /**
@@ -30,10 +32,12 @@ class MateriaisController extends Controller
     public function store(Request $request)
     {
         $materiais = new Materiais();
+        $materiais->material_id = $request->input('materials_id');
         $materiais->nome = $request->input('nome');
-        $materiais->quantidade = $request->input('quantidade');
         $materiais->cor = $request->input('cor');
-        $materiais->nivelminimo = $request->input('nivelminimo');
+        $materiais->altura = $request->input('altura');
+        $materiais->largura = $request->input('largura');
+        $materiais->espessura = $request->input('espessura');
         $materiais->caracteristicas = $request->input('caracteristicas');
         $materiais->save();
         $materiais = Materiais::all();
@@ -54,9 +58,10 @@ class MateriaisController extends Controller
      */
     public function edit(string $id)
     {
+        $materials = Material::all();
         $material = Materiais::find($id);
         if ($material) {
-            return view('materiais.edit')->with('material', $material);
+            return view('materiais.edit')->with('material', $material)->with('materials', $materials);
         } else {
             $materiais = Materiais::all();
             return view('materiais.index')->with('materiais', $materiais)
@@ -70,10 +75,12 @@ class MateriaisController extends Controller
     public function update(Request $request, string $id)
     {
         $materiais = Materiais::find($id);
+        $materiais->material_id = $request->input('materials_id');
         $materiais->nome = $request->input('nome');
-        $materiais->quantidade = $request->input('quantidade');
         $materiais->cor = $request->input('cor');
-        $materiais->nivelminimo = $request->input('nivelminimo');
+        $materiais->altura = $request->input('altura');
+        $materiais->largura = $request->input('largura');
+        $materiais->espessura = $request->input('espessura');
         $materiais->caracteristicas = $request->input('caracteristicas');
         $materiais->save();
         $materiais = Materiais::all();

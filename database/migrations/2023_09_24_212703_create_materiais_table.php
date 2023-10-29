@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('materiais', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('material_id');
-            $table->foreign('materials_id')->references('id')->on('materials');
+            $table->foreign('material_id')->references('id')->on('materials');
             $table->string("nome", 100);
             $table->string("cor", 45);
             $table->double("altura");
