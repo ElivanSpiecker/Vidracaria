@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Clientes;
 use App\Models\Itens;
 use App\Models\Produtos;
 use App\Models\Materiais;
@@ -25,8 +26,9 @@ class ItensController extends Controller
     {
         $produtos = Produtos::all();
         $materiais = Materiais::all();
+        $clientes = Clientes::all();
     
-        return view('itens.create', ['produtos' => $produtos, 'materiais' => $materiais]);
+        return view('itens.create', ['produtos' => $produtos, 'materiais' => $materiais, 'clientes' => $clientes]);
     }
     
 

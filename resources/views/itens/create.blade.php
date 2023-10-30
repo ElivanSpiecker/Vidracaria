@@ -8,10 +8,11 @@
             @csrf
             <table class="min-w-full divide-y divide-gray-200">
                 <tbody class="divide-y divide-gray-200">
-                    @foreach ($produtos as $p)
                     <label for="produto" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Produtos:</label>
+                    @foreach ($produtos as $p)
                     <input type="radio" name="produto_id" id="produto{{ $p->id }}" value="{{ $p->id }}" class="mr-2">
                     <label for="produto{{ $p->id }}" class="text-sm">&nbsp;&nbsp;REF: {{ $p->id }} &nbsp;&nbsp; Nome: {{ $p->nome }} &nbsp;&nbsp; Descrição: {{ $p->descricao }}</label>
+                    <br>
                     @endforeach
                 </tbody>
             </table>
@@ -26,7 +27,11 @@
             </div>
             <div class="mb-4">
                 <label for="cliente_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Cliente_id:</label>
-                <input type="integer" name="cliente_id" id="cliente_id" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+                <select name="cliente_id" id="cliente_id" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
+                    @foreach ($clientes as $c)
+                    <option value="{{ $c->id }}">{{ $c->nome }}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-4">
                 <label for="altura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Altura:</label>

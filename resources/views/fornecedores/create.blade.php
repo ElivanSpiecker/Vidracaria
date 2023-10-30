@@ -17,17 +17,17 @@
             </div>
             <div class="mb-4">
                 <label for="cnpj" class="block text-sm font-medium text-gray-700 dark:text-gray-300">CNPJ:</label>
-                <input type="text" name="cnpj" id="cnpj" required
+                <input type="text" placeholder="xx.xxx.xxx/xxxx-xx" pattern="^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$" name="cnpj" id="cnpj" required
                     class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="mb-4">
                 <label for="telefone" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Telefone:</label>
-                <input type="text" name="telefone" id="telefone" required
+                <input type="text" placeholder="(xx)xxxxx-xxxx" pattern="^\(\d{2}\)\d{5}-\d{4}$" name="telefone" id="telefone" required
                     class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="mb-4">
                 <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">E-mail:</label>
-                <input type="text" name="email" id="email" required
+                <input type="text" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="seuemail@provedor.com" id="email" required
                     class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="space-x-2">

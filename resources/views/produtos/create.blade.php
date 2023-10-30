@@ -16,25 +16,28 @@
             <div class="mb-4">
                 <label for="material1" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Material 1:</label>
                 <select name="material1" id="material1" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
-                    <option value="material_1_option_1">Opção 1</option>
-                    <option value="material_1_option_2">Opção 2</option>
-                    <option value="material_1_option_3">Opção 3</option>
+                    <option value="-">Nenhum</option>
+                    @foreach ($materiais as $m)
+                    <option value="{{ $m->id }}">{{ $m->tipo }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-4">
                 <label for="material2" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Material 2:</label>
                 <select name="material2" id="material2" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
-                    <option value="material_2_option_1">Opção 1</option>
-                    <option value="material_2_option_2">Opção 2</option>
-                    <option value="material_2_option_3">Opção 3</option>
+                    <option value="-">Nenhum</option>
+                    @foreach ($materiais as $m)
+                    <option value="{{ $m->id }}">{{ $m->tipo }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="mb-4">
                 <label for="material3" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Material 3:</label>
                 <select name="material3" id="material3" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
-                    <option value="material_3_option_1">Opção 1</option>
-                    <option value="material_3_option_2">Opção 2</option>
-                    <option value="material_3_option_3">Opção 3</option>
+                    <option value="-">Nenhum</option>
+                    @foreach ($materiais as $m)
+                    <option value="{{ $m->id }}">{{ $m->tipo }}</option>
+                    @endforeach
                 </select>
             </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Material;
 use App\Models\Produtos;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class ProdutosController extends Controller
      */
     public function create()
     {
-        return view('produtos.create');
+        $materiais = Material::all();
+        return view('produtos.create')->with('materiais', $materiais);
     }
 
     /**

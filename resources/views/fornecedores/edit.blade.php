@@ -15,15 +15,15 @@
         </div>
         <div class="mb-4">
             <label for="cnpj" class="block text-sm font-semibold mb-2">CNPJ:</label>
-            <input type="text" name="cnpj" id="cnpj" required value="{{ $fornecedor->cnpj }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
+            <input type="text" name="cnpj" id="cnpj" placeholder="xx.xxx.xxx/xxxx-xx" pattern="^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$" required value="{{ $fornecedor->cnpj }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">
             <label for="telefone" class="block text-sm font-semibold mb-2">Telefone:</label>
-            <input type="text" name="telefone" id="telefone" required value="{{ $fornecedor->telefone }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
+            <input type="text" name="telefone" id="telefone" placeholder="(xx)xxxxx-xxxx" pattern="^\(\d{2}\)\d{5}-\d{4}$" required value="{{ $fornecedor->telefone }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">
             <label for="email" class="block text-sm font-semibold mb-2">E-mail:</label>
-            <input type="text" name="email" id="email" required value="{{ $fornecedor->email }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
+            <input type="text" name="email" pattern="[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}" placeholder="seuemail@provedor.com" id="email" required value="{{ $fornecedor->email }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="flex space-x-4">
             <button form="update-form" type="submit" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-md cursor-pointer" style="background-color:green">Salvar</button>
