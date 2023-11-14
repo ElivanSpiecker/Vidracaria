@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fornecedores;
+use App\Models\Material;
 use Illuminate\Http\Request;
 
 class FornecedoresController extends Controller
@@ -13,8 +14,9 @@ class FornecedoresController extends Controller
     public function index()
     {
         $fornecedores = Fornecedores::all();
-        return view('fornecedores.index')->with('fornecedores',$fornecedores);
+        return view('fornecedores.index')->with('fornecedores', $fornecedores);
     }
+
 
     /**
      * Show the form for creating a new resource.

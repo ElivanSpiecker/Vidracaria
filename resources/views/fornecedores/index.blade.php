@@ -16,6 +16,8 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Telefone</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">E-mail</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cadastrar</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Preços</th>
             </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
@@ -27,9 +29,17 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $f->cnpj }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $f->telefone }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $f->email }}</td>
+
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="{{ route('fornecedores.edit', $f->id) }}"
-                        class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
+                    <a href="{{ route('fornecedores.edit', $f->id) }}" class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
+                </td>
+                
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <a href="{{ route('precos.criar', $f->id) }}" class="hover:text-orange-700 text-orange-500" style="color:orange">Cadastrar</a>
+                </td>
+
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <a href="{{ route('precos.indice', $f->id) }}" class="hover:text-green-700 text-green-500" style="color:green">Preços</a>
                 </td>
             </tr>
             @endforeach
@@ -37,15 +47,15 @@
         <tfoot>
             <tr>
                 <td colspan="6" class="px-6 py-4 text-sm font-medium text-gray-500">Total de Fornecedores Cadastrados:
-                    {{ $fornecedores->count() }}</td>
+                    {{ $fornecedores->count() }}
+                </td>
             </tr>
         </tfoot>
     </table>
     @endif
 
     <div class="mt-4">
-        <a href="{{ route('fornecedores.create') }}"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Fornecedor</a>
+        <a href="{{ route('fornecedores.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Fornecedor</a>
     </div>
 
     @if (isset($msg))

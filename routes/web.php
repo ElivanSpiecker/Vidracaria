@@ -6,6 +6,7 @@ use App\Http\Controllers\FornecedoresController;
 use App\Http\Controllers\ItensController;
 use App\Http\Controllers\MateriaisController;
 use App\Http\Controllers\MaterialController;
+use App\Http\Controllers\PrecoController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProdutosController;
 use App\Models\Fornecedores;
@@ -38,6 +39,14 @@ Route::middleware('auth')->group(function () {
 
 Route::resource("/fornecedores", FornecedoresController::class)->middleware(['auth', 'verified']);
 
+Route::resource("/precos", PrecoController::class)->middleware(['auth', 'verified']);
+Route::get('/precos/criar/{id}', [PrecoController::class, 'criar'])
+    ->name('precos.criar');
+
+    Route::get('/precos/indice/{id}', [PrecoController::class, 'indice'])
+    ->name('precos.indice');    
+
+    
 Route::get('/listF', [FornecedoresController::class, 'index'])
     ->middleware(['auth', 'verified'])
     ->name('listF');
