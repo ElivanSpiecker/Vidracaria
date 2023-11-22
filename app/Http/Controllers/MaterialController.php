@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Material;
+use App\Models\Precos;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
@@ -67,9 +68,11 @@ class MaterialController extends Controller
     public function update(Request $request, string $id)
     {
         $materiais = Material::find($id);
+        $novoTipo = $request->input('tipo');
         $materiais->tipo = $request->input('tipo');
         $materiais->nivelminimo = $request->input('nivelminimo');
         $materiais->save();
+        Precos::where('material_id', $id)->update(['material_tipo' => $novoTipo]);
         $materiais = Material::all();
         return view('material.index')->with('materials', $materiais)
             ->with('msg', 'Tipo de Material atualizado!');

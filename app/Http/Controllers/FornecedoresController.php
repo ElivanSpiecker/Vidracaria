@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Fornecedores;
 use App\Models\Material;
+use App\Models\Precos;
 use Illuminate\Http\Request;
 
 class FornecedoresController extends Controller
@@ -71,17 +72,23 @@ class FornecedoresController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        $novoNome = $request->input('nome');
+    
         $fornecedores = Fornecedores::find($id);
-        $fornecedores->nome = $request->input('nome');
+        $fornecedores->nome = $novoNome;
         $fornecedores->endereco = $request->input('endereco');
         $fornecedores->cnpj = $request->input('cnpj');
         $fornecedores->telefone = $request->input('telefone');
         $fornecedores->email = $request->input('email');
         $fornecedores->save();
+
+        Precos::where('fornecedor_id', $id)->update(['fornecedor_nome' => $novoNome]);
+
         $fornecedores = Fornecedores::all();
         return view('fornecedores.index')->with('fornecedores', $fornecedores)
             ->with('msg', 'Fornecedor atualizado!');
     }
+
 
     /**
      * Remove the specified resource from storage.

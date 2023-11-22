@@ -2,7 +2,7 @@
 @section('content')
 <div class="bg-gray-900 text-white p-8">
     <h2 class="text-2xl font-bold mb-4">Atualizar um Preço</h2>
-    <form class="max-w-md mx-auto" id="update-form" method="POST" action="{{ route('precos.update', $preco->fornecedor_id, $preco->material_id) }}">
+    <form class="max-w-md mx-auto" id="update-form" method="POST" action="{{ route('precos.updat', ['fornecedor_id' => $preco->fornecedor_id, 'material_id' => $preco->material_id]) }}">
         @csrf
         @method('PUT')
         <div class="mb-4">

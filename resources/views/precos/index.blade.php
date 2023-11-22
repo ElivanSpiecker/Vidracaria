@@ -3,7 +3,7 @@
 <div class="bg-gray-900 text-white p-8">
     <h2 class="text-2xl font-bold mb-4">Preços Cadastrados</h2>
 
-    @if (count($precos) == 0)
+    @if ($precos->count() == 0)
     <h3 class="text-red-500">Nenhum Preço Encontrado!</h3>
     @else
     <table class="min-w-full divide-y divide-gray-200">
@@ -18,11 +18,11 @@
         <tbody class="divide-y divide-gray-200">
             @foreach ($precos as $p)
             <tr>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $fornecedor->nome  }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $material->tipo }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $p->fornecedor_nome }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">{{ $p->material_tipo }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $p->preco_m3 }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="{{ route('precos.edit', $preco->fornecedor_id, $preco->material_id) }}"  
+                    <a href="{{ route('precos.editar', ['fornecedor_id' => $p->fornecedor_id, 'material_id' => $p->material_id]) }}"  
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
                 </td>
             </tr>

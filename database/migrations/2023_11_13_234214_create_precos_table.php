@@ -18,6 +18,8 @@ return new class extends Migration
             $table->primary(['fornecedor_id', 'material_id']);
             $table->foreign('fornecedor_id')->references('id')->on('fornecedores');
             $table->foreign('material_id')->references('id')->on('materials');
+            $table->string("fornecedor_nome", 100);
+            $table->string("material_tipo", 100);
             $table->timestamps();
         });
     }

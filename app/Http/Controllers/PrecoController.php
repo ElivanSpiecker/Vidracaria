@@ -15,9 +15,8 @@ class PrecoController extends Controller
     public function indice(string $id)
     {
         $precos = Precos::all();
-        $fornecedor = Fornecedores::find($id);
-        $material - Material::find($id);
-        return view('precos.index')->with('precos', $precos)->with('fornecedor', $fornecedor);
+
+        return view('precos.index')->with('precos', $precos)->with('id_fornecedor', $id);
     }
 
     /**
@@ -51,16 +50,14 @@ class PrecoController extends Controller
         $precos->material_id = $request->input('materials_id');
         $precos->fornecedor_id = $request->input('fornecedor_id');
         $precos->preco_m3 = $request->input('preco_m3');
+        $precos->fornecedor_nome = $request->input('fornecedor_nome');
+        $precos->material_tipo = $request->input('material_tipo');
         $precos->save();
 
         $precos = Precos::all();
-        $material = Material::find($request->input('materials_id'));
-        $fornecedor = Fornecedores::find($request->input('fornecedor_id'));
 
         return view('precos.index')
             ->with('precos', $precos)
-            ->with('material', $material)
-            ->with('fornecedor', $fornecedor)
             ->with('msg', 'Preço cadastrado!');
     }
 
@@ -73,12 +70,16 @@ class PrecoController extends Controller
         //
     }
 
+    public function edit(string $id)
+    {
+        //
+    }
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function editar(string $id_fornecedor, string $id_material)
     {
-        $preco = Precos::find($id);
+        $preco = Precos::where(['fornecedor_id' => $id_fornecedor, 'material_id' => $id_material])->first();
         if ($preco) {
             return view('precos.edit')->with('preco', $preco);
         } else {
@@ -91,9 +92,16 @@ class PrecoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function updat(Request $request, string $id_fornecedor, string $id_material)
     {
-        //
+        Precos::where(['fornecedor_id' => $id_fornecedor, 'material_id' => $id_material])
+            ->update(['preco_m3' => $request->input('preco_m3')]);
+
+        $precos = Precos::all();
+
+        return view('precos.index')
+            ->with('precos', $precos)
+            ->with('msg', 'Preço atualizado!');
     }
 
     /**

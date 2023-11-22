@@ -43,7 +43,13 @@ Route::resource("/precos", PrecoController::class)->middleware(['auth', 'verifie
 Route::get('/precos/criar/{id}', [PrecoController::class, 'criar'])
     ->name('precos.criar');
 
-    Route::get('/precos/indice/{id}', [PrecoController::class, 'indice'])
+Route::get('/precos/editar/{fornecedor_id}/{material_id}', [PrecoController::class, 'editar'])
+    ->name('precos.editar');
+
+Route::put('/precos/updat/{fornecedor_id}/{material_id}', [PrecoController::class, 'updat'])
+    ->name('precos.updat');
+
+Route::get('/precos/indice/{id}', [PrecoController::class, 'indice'])
     ->name('precos.indice');    
 
     
