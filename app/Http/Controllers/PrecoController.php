@@ -46,6 +46,7 @@ class PrecoController extends Controller
      */
     public function store(Request $request)
     {
+        $id_forn = $request->input('fornecedor_id');
         $precos = new Precos();
         $precos->material_id = $request->input('materials_id');
         $precos->fornecedor_id = $request->input('fornecedor_id');
@@ -58,6 +59,7 @@ class PrecoController extends Controller
 
         return view('precos.index')
             ->with('precos', $precos)
+            ->with('id_fornecedor', $id_forn)
             ->with('msg', 'Preço cadastrado!');
     }
 

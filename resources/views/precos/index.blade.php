@@ -17,6 +17,7 @@
         </thead>
         <tbody class="divide-y divide-gray-200">
             @foreach ($precos as $p)
+            @if($id_fornecedor==$p->fornecedor_id)
             <tr>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $p->fornecedor_nome }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $p->material_tipo }}</td>
@@ -26,20 +27,15 @@
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
                 </td>
             </tr>
+            @endif
             @endforeach
         </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="6" class="px-6 py-4 text-sm font-medium text-gray-500">Total de Preços Cadastrados:
-                    {{ $precos->count() }}</td>
-            </tr>
-        </tfoot>
     </table>
     @endif
 
     <div class="mt-4">
-        <a href="{{ route('materiais.create') }}"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Material</a>
+        <a href="{{ route('precos.criar', $id_fornecedor) }}"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Preço</a>
     </div>
 
     @if (isset($msg))
