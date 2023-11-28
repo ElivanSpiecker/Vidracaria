@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Clientes;
+use App\Models\Itens;
 use Illuminate\Http\Request;
 
 class ClientesController extends Controller
@@ -46,7 +47,9 @@ class ClientesController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $cliente = Clientes::find($id);
+        $itens = Itens::where('cliente_id', $id)->get();
+        return view('clientes.show')->with('cliente',$cliente)->with('itens',$itens);
     }
 
     /**

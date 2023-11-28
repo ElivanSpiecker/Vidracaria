@@ -31,6 +31,10 @@
                     <a href="{{ route('clientes.edit', $c->id) }}"
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
                 </td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <a href="{{ route('clientes.show', $c->id) }}"
+                        class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Ver pedidos</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
