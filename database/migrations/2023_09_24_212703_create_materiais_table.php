@@ -21,6 +21,7 @@ return new class extends Migration
             $table->double("largura");
             $table->double("espessura");
             $table->string("caracteristicas", 100);
+            $table->float('preco');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Largura</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Espessura</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Características</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
             </tr>
         </thead>
@@ -31,6 +32,7 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $m->largura }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $m->espessura }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $m->caracteristicas }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">R${{ $m->preco }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <a href="{{ route('materiais.edit', $m->id) }}"  
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>

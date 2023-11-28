@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Fornecedores;
 use App\Models\Materiais;
 use App\Models\Material;
+use App\Models\Precos;
 use Illuminate\Http\Request;
 
 class MateriaisController extends Controller
@@ -22,8 +24,9 @@ class MateriaisController extends Controller
      */
     public function create()
     {
-        $material = Material::all();
-        return view('materiais.create')-> with('material', $material);
+        $preco = Precos::all();
+        $fornecedor = Fornecedores::all();
+        return view('materiais.create')-> with('preco', $preco)-> with('fornecedor', $fornecedor);
     }
 
     /**
@@ -31,14 +34,23 @@ class MateriaisController extends Controller
      */
     public function store(Request $request)
     {
+
+        $preco = Precos::where(['fornecedor_id' => $request->input('fornecedor_id'), 'material_id' => $request->input('material_id')])->first();
+        $alt = $request->input('altura');
+        $larg = $request->input('largura');
+        $espe = $request->input('espessura');
+        $prm3 = $preco->preco_m3;
+        $valor = $alt * $larg * $espe * $prm3;
+
         $materiais = new Materiais();
-        $materiais->material_id = $request->input('materials_id');
+        $materiais->material_id = $request->input('material_id');
         $materiais->nome = $request->input('nome');
         $materiais->cor = $request->input('cor');
         $materiais->altura = $request->input('altura');
         $materiais->largura = $request->input('largura');
         $materiais->espessura = $request->input('espessura');
         $materiais->caracteristicas = $request->input('caracteristicas');
+        $materiais->preco = $valor;
         $materiais->save();
         $materiais = Materiais::all();
         return view('materiais.index')->with('materiais', $materiais)
@@ -74,14 +86,26 @@ class MateriaisController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
+
         $materiais = Materiais::find($id);
-        $materiais->material_id = $request->input('materials_id');
+        $alt = $materiais->altura;
+        $larg = $materiais->largura;
+        $espe = $materiais->espessura;
+        $prm3 =  $materiais->preco / $alt / $larg / $espe;
+
+        $alt2 = $request->input('altura');
+        $larg2 = $request->input('largura');
+        $espe2 = $request->input('espessura');
+        $valor = $alt2 * $larg2 * $espe2 * $prm3;
+
         $materiais->nome = $request->input('nome');
         $materiais->cor = $request->input('cor');
         $materiais->altura = $request->input('altura');
         $materiais->largura = $request->input('largura');
         $materiais->espessura = $request->input('espessura');
         $materiais->caracteristicas = $request->input('caracteristicas');
+        $materiais->preco = $valor;
         $materiais->save();
         $materiais = Materiais::all();
         return view('materiais.index')->with('materiais', $materiais)

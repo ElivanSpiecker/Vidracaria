@@ -52,6 +52,7 @@
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Largura</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Espessura</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Características</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Valor</th>
                         <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Selecionar</th>
                     </tr>
                 </thead>
@@ -66,11 +67,17 @@
                         <td class="px-6 py-4">{{ $m->largura }}</td>
                         <td class="px-6 py-4">{{ $m->espessura }}</td>
                         <td class="px-6 py-4">{{ $m->caracteristicas }}</td>
+                        <td class="px-6 py-4">R${{ $m->preco }}</td>
                         <td class="px-6 py-4">
                             <input type="checkbox" name="material_ids[]" value="{{ $m->id }}">
                         </td>
                     </tr>
                     @endforeach
+                </tbody>
+
+                <tbody>
+
+
                 </tbody>
 
                 <tfoot>

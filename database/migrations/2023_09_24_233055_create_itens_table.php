@@ -22,6 +22,7 @@ return new class extends Migration
             $table->float("altura");
             $table->float("largura");
             $table->text('material_id');
+            $table->float('preco');
             $table->timestamps();
         });
     }
