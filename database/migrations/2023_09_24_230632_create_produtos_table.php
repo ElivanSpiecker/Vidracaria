@@ -15,9 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("nome", 100);
             $table->string("descricao", 100);
-            $table->string("material1", 100);
-            $table->string("material2", 100);
-            $table->string("material3", 100);
+            $table->text('material_id');
             $table->timestamps();
         });
     }

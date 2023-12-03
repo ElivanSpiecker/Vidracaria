@@ -12,9 +12,7 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descrição</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material 1</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material 2</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Material 3</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Materiais</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
             </tr>
         </thead>    
@@ -24,9 +22,15 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $p->id }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $p->nome }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">{{ $p->descricao }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $p->material1 }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $p->material2 }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">{{ $p->material3 }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                    @php
+                        $materialIdArray = unserialize($p->material_id);
+                    @endphp
+                    @foreach ($materialIdArray as $materialId)
+                        {{ $materialId }}
+                        <!-- Se você desejar, pode buscar informações detalhadas de cada material usando $materialId -->
+                    ;
+                    @endforeach</td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     <a href="{{ route('produtos.edit', $p->id) }}"
                         class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>

@@ -13,33 +13,28 @@
                 <label for="descricao" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Descrição:</label>
                 <input type="text" name="descricao" id="descricao" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
-            <div class="mb-4">
-                <label for="material1" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Material 1:</label>
-                <select name="material1" id="material1" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
-                    <option value="-">Nenhum</option>
+            <table class="min-w-full divide-y divide-gray-200">
+                <thead>
+                    <tr>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Id</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tipo</th>
+                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nível mínimo</th>
+                    </tr>
+                </thead>
+
+            <tbody class="text-center divide-y divide-gray-200">
                     @foreach ($materiais as $m)
-                    <option value="{{ $m->id }}">{{ $m->tipo }}</option>
+                    <tr>
+                        <td class="px-6 py-4">{{ $m->id }}</td>
+                        <td class="px-6 py-4">{{ $m->tipo }}</td>
+                        <td class="px-6 py-4">{{ $m->nivelminimo }}</td>
+                        <td class="px-6 py-4">
+                            <input type="checkbox" name="material_ids[]" value="{{ $m->id }}">
+                        </td>
+                    </tr>
                     @endforeach
-                </select>
-            </div>
-            <div class="mb-4">
-                <label for="material2" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Material 2:</label>
-                <select name="material2" id="material2" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
-                    <option value="-">Nenhum</option>
-                    @foreach ($materiais as $m)
-                    <option value="{{ $m->id }}">{{ $m->tipo }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <div class="mb-4">
-                <label for="material3" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Material 3:</label>
-                <select name="material3" id="material3" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
-                    <option value="-">Nenhum</option>
-                    @foreach ($materiais as $m)
-                    <option value="{{ $m->id }}">{{ $m->tipo }}</option>
-                    @endforeach
-                </select>
-            </div>
+            </tbody>
+            </table>
 
             <div class="space-x-2">
                 <input type="submit" value="Salvar" class="bg-indigo-500 hover:bg-indigo-600 text-white font-semibold py-2 px-4 rounded-md cursor-pointer">

@@ -34,9 +34,7 @@ class ProdutosController extends Controller
         $produtos = new Produtos();
         $produtos->nome = $request->input('nome');
         $produtos->descricao = $request->input('descricao');
-        $produtos->material1 = $request->input('material1');
-        $produtos->material2 = $request->input('material2');
-        $produtos->material3 = $request->input('material3');
+        $produtos->material_id = serialize($request->input('material_ids'));
         $produtos->save();
         $produtos = Produtos::all();
         return view('produtos.index')->with('produtos', $produtos)
