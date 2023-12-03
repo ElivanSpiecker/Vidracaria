@@ -23,15 +23,15 @@
             <input type="text" name="cor" id="cor" required value="{{ $material->cor }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">
-            <label for="altura" class="block text-sm font-semibold mb-2">Altura:</label>
+            <label for="altura" class="block text-sm font-semibold mb-2">Altura: (cm)</label>
             <input type="float" name="altura" id="altura" required value="{{ $material->altura }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">
-            <label for="largura" class="block text-sm font-semibold mb-2">Largura:</label>
+            <label for="largura" class="block text-sm font-semibold mb-2">Largura: (cm)</label>
             <input type="float" name="largura" id="largura" required value="{{ $material->largura }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">
-            <label for="espessura" class="block text-sm font-semibold mb-2">Espessura:</label>
+            <label for="espessura" class="block text-sm font-semibold mb-2">Espessura: (cm)</label>
             <input type="float" name="espessura" id="espessura" required value="{{ $material->espessura }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">

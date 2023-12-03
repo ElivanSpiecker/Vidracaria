@@ -27,16 +27,55 @@ class ItensController extends Controller
         $produtos = Produtos::all();
         $materiais = Materiais::all();
         $clientes = Clientes::all();
-    
+
         return view('itens.create', ['produtos' => $produtos, 'materiais' => $materiais, 'clientes' => $clientes]);
     }
-    
+
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
+        //area abertura
+        $alt = $request->input('altura');
+        $larg = $request->input('largura');
+        $aream2 = $alt * $larg;
+
+        // Serializar
+        $materiaisusados = serialize($request->input('material_ids'));
+
+        // Desserializar
+        $materialArray = unserialize($materiaisusados);
+        $materiais = 0;
+
+        foreach ($materialArray as $m) {
+            $material = Materiais::find($m);
+            $preco = $material->preco / ($material->altura * $material->largura);
+            $materiais += $preco*$aream2;
+
+            if($alt>$larg){
+                if($material->altura > $material->largura){
+                    $material->altura -= $larg;
+                }
+                else{
+                    $material->largura -=$larg;
+                }
+            }
+            else{
+                if($material->altura > $material->largura){
+                    $material->altura -= $alt;
+                }
+                else{
+                    $material->largura -=$alt;
+                }
+            }
+            $preco = $preco * $material->altura * $material->largura;
+            $material->preco = $preco;
+            $material->save();
+        }
+
+
         $itens = new Itens();
         $itens->nome = $request->input('nome');
         $itens->descricao = $request->input('descricao');
@@ -45,6 +84,7 @@ class ItensController extends Controller
         $itens->altura = $request->input('altura');
         $itens->largura = $request->input('largura');
         $itens->material_id = serialize($request->input('material_ids'));
+        $itens->preco =$materiais;
         $itens->save();
         $itens = Itens::all();
         return view('itens.index')->with('itens', $itens)

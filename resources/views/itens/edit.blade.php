@@ -18,11 +18,11 @@
             <input type="integer" name="cliente_id" id="cliente_id" required value="{{ $item->cliente_id }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">
-            <label for="altura" class="block text-sm font-semibold mb-2">Altura:</label>
+            <label for="altura" class="block text-sm font-semibold mb-2">Altura: (cm)</label>
             <input type="float" name="altura" id="altura" required value="{{ $item->altura }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="mb-4">
-            <label for="largura" class="block text-sm font-semibold mb-2">Largura:</label>
+            <label for="largura" class="block text-sm font-semibold mb-2">Largura: (cm)</label>
             <input type="float" name="largura" id="largura" required value="{{ $item->largura }}" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="flex space-x-4">

@@ -21,7 +21,7 @@
             @endforeach
         </tbody>
         <div class="mb-4">
-            <label for="preco_m3" class="block text-sm font-semibold mb-2">Preço por m³:</label>
+            <label for="preco_m3" class="block text-sm font-semibold mb-2">Preço por cm³:</label>
             <input type="float" name="preco_m3" id="preco_m3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500 bg-gray-800 text-white">
         </div>
         <div class="space-x-2">

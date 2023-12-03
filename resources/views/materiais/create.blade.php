@@ -24,15 +24,15 @@
                 <input type="text" name="cor" id="cor" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="mb-4">
-                <label for="altura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Altura:</label>
+                <label for="altura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Altura (cm):</label>
                 <input type="float" name="altura" id="altura" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="mb-4">
-                <label for="largura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Largura:</label>
+                <label for="largura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Largura (cm):</label>
                 <input type="float" name="largura" id="largura" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="mb-4">
-                <label for="espessura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Espessura:</label>
+                <label for="espessura" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Espessura (cm):</label>
                 <input type="float" name="espessura" id="espessura" required class="border-gray-300 dark:border-gray-600 focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border rounded-md bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-100">
             </div>
             <div class="mb-4">
