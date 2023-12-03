@@ -31,11 +31,29 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
+
         $produtos = new Produtos();
         $produtos->nome = $request->input('nome');
         $produtos->descricao = $request->input('descricao');
         $produtos->material_id = serialize($request->input('material_ids'));
+
+        // Processar o upload da imagem
+        if ($request->hasFile('imagem')) {   
+            $imagem = $request->imagem;
+            $extension = $imagem->extension();
+            $nomeImagem = md5(time()) . '.' . $extension;
+            $request->file('imagem')->move(public_path('img'), $nomeImagem);
+            
+            // Lendo a imagem e convertendo para binário
+
+            // Atualizando o modelo com o caminho da imagem
+            $produtos->imagem = $nomeImagem;
+        } else {
+            $produtos->imagem = null;
+        }
+
         $produtos->save();
+
         $produtos = Produtos::all();
         return view('produtos.index')->with('produtos', $produtos)
             ->with('msg', 'Produto cadastrado!');
@@ -72,9 +90,6 @@ class ProdutosController extends Controller
         $produtos = Produtos::find($id);
         $produtos->nome = $request->input('nome');
         $produtos->descricao = $request->input('descricao');
-        $produtos->descricao = $request->input('material1');
-        $produtos->descricao = $request->input('material2');
-        $produtos->descricao = $request->input('material3');
         $produtos->save();
         $produtos = Produtos::all();
         return view('produtos.index')->with('produtos', $produtos)

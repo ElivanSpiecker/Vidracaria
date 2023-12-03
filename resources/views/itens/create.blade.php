@@ -11,7 +11,10 @@
                     <label for="produto" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Produtos:</label>
                     @foreach ($produtos as $p)
                     <input type="radio" name="produto_id" id="produto{{ $p->id }}" value="{{ $p->id }}" class="mr-2">
-                    <label for="produto{{ $p->id }}" class="text-sm">&nbsp;&nbsp;REF: {{ $p->id }} &nbsp;&nbsp; Nome: {{ $p->nome }} &nbsp;&nbsp; Descrição: {{ $p->descricao }}</label>
+                    <label for="produto{{ $p->id }}" class="text-sm">
+                        &nbsp;&nbsp;REF: {{ $p->id }} &nbsp;&nbsp; Nome: {{ $p->nome }} &nbsp;&nbsp; Descrição: {{ $p->descricao }}
+                        <img src="/img/{{ $p->imagem }}" class="w-16 h-16 object-cover" alt="Imagem do Produto">
+                    </label>
                     <br>
                     @endforeach
                 </tbody>

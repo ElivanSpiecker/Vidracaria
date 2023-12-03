@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string("nome", 100);
             $table->string("descricao", 100);
             $table->text('material_id');
+            $table->string('imagem')->nullable();
             $table->timestamps();
         });
     }

@@ -13,9 +13,10 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nome</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Descrição</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Materiais</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Imagem</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Edição</th>
             </tr>
-        </thead>    
+        </thead>
         <tbody class="divide-y divide-gray-200">
             @foreach ($produtos as $p)
             <tr>
@@ -24,16 +25,20 @@
                 <td class="px-6 py-4 whitespace-nowrap">{{ $p->descricao }}</td>
                 <td class="px-6 py-4 whitespace-nowrap">
                     @php
-                        $materialIdArray = unserialize($p->material_id);
+                    $materialIdArray = unserialize($p->material_id);
                     @endphp
                     @foreach ($materialIdArray as $materialId)
-                        {{ $materialId }}
-                        <!-- Se você desejar, pode buscar informações detalhadas de cada material usando $materialId -->
+                    {{ $materialId }}
+                    <!-- Se você desejar, pode buscar informações detalhadas de cada material usando $materialId -->
                     ;
-                    @endforeach</td>
+                    @endforeach
+                </td>
+                <td>
+                    <img src="/img/{{ $p->imagem }}" class="w-16 h-16 object-cover" alt="Imagem do Produto">
+                </td>
+
                 <td class="px-6 py-4 whitespace-nowrap">
-                    <a href="{{ route('produtos.edit', $p->id) }}"
-                        class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
+                    <a href="{{ route('produtos.edit', $p->id) }}" class="hover:text-yellow-700 text-yellow-500" style="color:yellow">Editar</a>
                 </td>
             </tr>
             @endforeach
@@ -41,15 +46,15 @@
         <tfoot>
             <tr>
                 <td colspan="6" class="px-6 py-4 text-sm font-medium text-gray-500">Total de Produtos Cadastrados:
-                    {{ $produtos->count() }}</td>
+                    {{ $produtos->count() }}
+                </td>
             </tr>
         </tfoot>
     </table>
     @endif
 
     <div class="mt-4">
-        <a href="{{ route('produtos.create') }}"
-            class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Produto</a>
+        <a href="{{ route('produtos.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-md">Criar Produto</a>
     </div>
 
     @if (isset($msg))
