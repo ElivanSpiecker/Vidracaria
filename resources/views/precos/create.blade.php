@@ -1,5 +1,10 @@
 @extends('dashboard')
 @section('content')
+@php
+    $type = Auth::user()->type;
+@endphp
+@if($type=='estoque')
+@else
 <div class="bg-gray-900 text-white p-8">
     <h2 class="text-2xl font-bold mb-4">Cadastrar Produto Fornecido</h2>
     <form class="form" method="POST" action="{{ route('precos.store') }}">
@@ -32,4 +37,5 @@
             </div>
     </form>
 </div>
+@endif
 @endsection

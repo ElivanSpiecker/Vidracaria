@@ -1,5 +1,10 @@
 @extends('dashboard')
 @section('content')
+@php
+    $type = Auth::user()->type;
+@endphp
+@if($type=='estoque')
+@else
 <div class="bg-gray-900 text-white p-8">
     <h2 class="text-2xl font-bold mb-4">Atualizar um Produto</h2>
     <form class="max-w-md mx-auto" id="update-form" method="POST" action="{{ route('produtos.update', $produto->id) }}">
@@ -24,4 +29,5 @@
         @method('DELETE')
     </form>
 </div>
+@endif
 @endsection

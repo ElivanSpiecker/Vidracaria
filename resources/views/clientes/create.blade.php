@@ -1,5 +1,10 @@
 @extends('dashboard')
 @section('content')
+@php
+    $type = Auth::user()->type;
+@endphp
+@if($type=='estoque')
+@else
 <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
     <div class="p-6 text-gray-900 dark:text-gray-100">
         <h2 class="text-2xl font-semibold mb-4">Cadastrar Novo Cliente</h2>
@@ -39,4 +44,5 @@
         </form>
     </div>
 </div>
+@endif
 @endsection
