@@ -20,9 +20,9 @@
             <button class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-md cursor-pointer" form="delete-form" type="submit" value="Excluir">Excluir</button>
         </div>
     </form>
-    <form method="POST" class="form hidden" id="delete-form" action="{{ route('precos.destroy', $preco->fornecedor_id, $preco->material_id) }}">
+    <form method="POST" class="form hidden" id="delete-form" action="{{ route('precos.destro', ['fornecedor_id' => $preco->fornecedor_id, 'material_id' => $preco->material_id]) }}">
         @csrf
-        @method('DELETE')
+        @method('PUT')
     </form>
 </div>
 @endif

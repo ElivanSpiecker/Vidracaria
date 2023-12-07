@@ -49,6 +49,9 @@ Route::get('/precos/editar/{fornecedor_id}/{material_id}', [PrecoController::cla
 Route::put('/precos/updat/{fornecedor_id}/{material_id}', [PrecoController::class, 'updat'])
     ->name('precos.updat');
 
+Route::put('/precos/destro/{fornecedor_id}/{material_id}', [PrecoController::class, 'destro'])
+    ->name('precos.destro');
+
 Route::get('/precos/indice/{id}', [PrecoController::class, 'indice'])
     ->name('precos.indice');    
 

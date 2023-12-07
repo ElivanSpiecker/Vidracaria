@@ -103,14 +103,23 @@ class PrecoController extends Controller
 
         return view('precos.index')
             ->with('precos', $precos)
+            ->with('id_fornecedor', $id_fornecedor)
             ->with('msg', 'Preço atualizado!');
     }
 
     /**
      * Remove the specified resource from storage.
      */
+    public function destro(string $id_fornecedor, string $id_material){
+        Precos::where(['fornecedor_id' => $id_fornecedor, 'material_id' => $id_material])->delete();
+    }
+
     public function destroy(string $id)
     {
-        //
+        $precos = Precos::find($id);
+        $precos->delete();
+        $precos = Precos::all();
+        return view('precos.index')->with('precos', $precos)
+            ->with('msg', "Preço foi excluído!");
     }
 }
